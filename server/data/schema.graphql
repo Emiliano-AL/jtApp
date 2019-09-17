@@ -1,0 +1,78 @@
+type User{
+    id: ID
+    nombre: String
+    apellido: String
+    puesto: String
+    email: String
+}
+type Email{
+    email: String
+}
+
+type Task{
+    id: ID
+    nombre : String!
+    fechaInicio: String
+    fechaFin: String
+    desarrolladores: String
+}
+
+type Project{
+    id: ID
+    nombre : String
+    fechaInicio: String
+    fechaFin: String
+    tareas: String
+}
+
+type Query{
+    getUsers(limite:Int): [User]
+    getUser(id:ID): User
+    getTasks(limite:Int): [Task]
+    getTask(id:ID): Task
+    # getProjects(limite:Int): [Project]
+    # getProject(id:ID): Project
+}
+
+input EmailInput{
+    email: String
+}
+
+input UserInput{
+    id: ID
+    nombre: String
+    apellido: String
+    puesto: String
+    email: String
+}
+
+input ProjectInput{
+    id: ID
+    nombre : String
+    fechaInicio: String
+    fechaFin: String
+    tareas: String
+}
+
+input TaskInput{
+    id: ID
+    nombre : String!
+    fechaInicio: String
+    fechaFin: String
+    desarrolladores: String
+}
+""" Crear nuevo Cliente """
+type Mutation{
+    #Nombre del resolver
+    createUser(input: UserInput) : User
+    updateUser(input: UserInput) : User
+    deleteUser(id: ID!) : String
+    ##Task for projects
+    createTask(input: TaskInput) : Task
+    updateTask(input: TaskInput) : Task
+    deleteTask(id: ID!) : String
+    ##Task for projects
+    # createProject(input: ProjectInput) : Project
+    # updateProject(input: ProjectInput) : Project
+    # deleteProject(id: ID!) : String
+}
