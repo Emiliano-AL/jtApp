@@ -17,5 +17,9 @@ export const ACTUALIZAR_USER = gql `
             puesto
             email
         }
-    }
-`
+    }`
+
+export const ELIMINAR_USER = gql `
+    mutation deleteUser($id: ID!){
+        deleteUser(id: $id)
+    }`

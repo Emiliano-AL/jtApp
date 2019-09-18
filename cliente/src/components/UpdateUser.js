@@ -16,7 +16,6 @@ export default class UpdateUser extends Component {
                         ({loading, error, data}) => {
                             if(loading) return "Cargando..."
                             if(error) return error
-                            console.log(data)
                             return(
                                 <FormularioEditarUser 
                                     usuario={data.getUser}

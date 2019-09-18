@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {ACTUALIZAR_USER} from '../mutations'
 import {Mutation} from 'react-apollo'
+import {withRouter} from 'react-router-dom'
 
 class FormularioEditar extends Component {
 
@@ -11,7 +12,8 @@ class FormularioEditar extends Component {
     render() { 
         const {nombre, apellido, puesto, email} = this.state.usuario
         return (
-            <Mutation mutation={ACTUALIZAR_USER}>
+            <Mutation mutation={ACTUALIZAR_USER}
+                onCompleted={ () => this.props.history.push('/')}>
             { 
                 actualizarUser => (
                 <form className="col-md-8 m-3" onSubmit={e => {
@@ -109,4 +111,4 @@ class FormularioEditar extends Component {
 }
  
 
-export default FormularioEditar;
+export default withRouter(FormularioEditar);
