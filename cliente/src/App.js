@@ -8,6 +8,9 @@ import Header from './components/Header'
 import Users from './components/Users'
 import UpdateUser from './components/UpdateUser'
 import NewUser from './components/NewUser'
+import Task from './components/Tasks'
+import UpdateTask from './components/UpdateTask';
+import NewTask from './components/NewTask';
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -29,6 +32,9 @@ class App extends Component{
                 <Route exact path="/" component={Users} />
                 <Route exact path="/user/new" component={NewUser} />
                 <Route exact path="/user/edit/:id" component={UpdateUser} />
+                <Route exact path="/task" component={Task} />
+                <Route exact path="/task/new" component={NewTask} />
+                <Route exact path="/task/edit/:id" component={UpdateTask} />
               </Switch>
             </div>
           </Fragment>

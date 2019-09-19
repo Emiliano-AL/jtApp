@@ -19,4 +19,25 @@ export const USER_QUERY = gql `
             email
         }
     }
-`
+`;
+
+export const TASKS_QUERY = gql `{
+    getTasks{
+        id
+        nombre
+        fechaInicio
+        fechaFin
+   }
+}`;
+
+
+export const TASK_QUERY = gql `
+    query ConsultingTask($id: ID){
+        getTask(id: $id){
+            nombre
+            id
+            fechaFin
+            fechaInicio
+        }
+    }
+`;
